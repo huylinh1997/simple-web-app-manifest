@@ -6,6 +6,7 @@ metadata:
     run: simpleapp
   name: simpleapp
 spec:
+  replicas: 2
   containers:
   - image: dinhhuy1997/harness-demo:v1
     name: simpleapp
