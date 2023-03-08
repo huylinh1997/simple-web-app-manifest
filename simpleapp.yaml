@@ -1,16 +1,24 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    run: simpleapp
+    app: simpleapp
   name: simpleapp
 spec:
   replicas: 2
-  containers:
-  - image: dinhhuy1997/harness-demo:v1
-    name: simpleapp
-    resources: {}
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
+  selector:
+    matchLabels:
+      app: simpleapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: simpleapp
+    spec:
+      containers:
+      - image: dinhhuy1997/harness-demo:v1
+        name: harness-demo
+        resources: {}
 status: {}
